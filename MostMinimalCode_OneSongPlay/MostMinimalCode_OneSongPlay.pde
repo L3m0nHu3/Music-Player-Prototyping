@@ -18,7 +18,7 @@ void setup()
 //
 void draw() 
 {
-  if (song1.isLooping() && song1.loopCount()!=-1) println("There are", song1.loopCount(),"loops left.");
+  if (song1.isLooping() && song1.loopCount()!=-1) println("There are", song1.loopCount(), "loops left.");
   if (song1.isLooping() && song1.loopCount()==1) println("Looping Infinity");
   if ( song1.isPlaying() && !song1.isLooping() ) println("Play Once");
   println("Song position", song1.position(), "Song length", song1.length() );
@@ -42,17 +42,20 @@ void keyPressed()
   }//End LOOP Function Once
   if ( key=='i'|| key=='I' ) song1.loop(); //Infinite loop, no perameter OR -1
   if ( key >= '2' || key=='0') println ("I do not loop that much, press i for inifinite loop");
-    //
-    if ( key=='M' || key=='m' ) {//Mute Button
-      if ( song1.isMuted() ) {
-        song1.unmute();
-      } else {
-        song1.mute();
-      }
-    }//End Mute Button
-}//End keyPressed
-//
-void mousePressed() {
-}// End mousePressed
-//
-//End MAIN Program
+  //
+  if ( key=='M' || key=='m' ) {//Mute Button
+    if ( song1.isMuted() ) {
+      song1.unmute();
+    } else {
+      song1.mute();
+    }
+  }//End Mute Button
+  //
+  if ( key=='f' || key=='F' ) song1.skip(5000); //Skip forward 1 second (1000 ms)
+  if ( key=='r' || key=='R' ) song1.skip(-5000); //Skip backwards 1 second (1000 ms)
+  //
+}//End keyPressedfffrrr
+  void mousePressed() {
+  }// End mousePressed
+  //
+  //End MAIN Program
