@@ -21,6 +21,7 @@ void draw()
   if (song1.isLooping() && song1.loopCount()!=-1) println("There are", song1.loopCount(),"loops left.");
   if (song1.isLooping() && song1.loopCount()==1) println("Looping Infinity");
   if ( song1.isPlaying() && !song1.isLooping() ) println("Play Once");
+  println("Song position", song1.position(), "Song length", song1.length() );
 } //End draw
 //
 void keyPressed() 
