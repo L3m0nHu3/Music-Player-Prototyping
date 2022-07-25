@@ -27,7 +27,7 @@ void draw()
 void keyPressed() 
 {
   //---------First Play Button---------
-  if ( key==' ' || key=='p' || key=='P' ) song1.play(); //Perameter is milli-seconds from start of audiofile to start playing
+  if ( key=='p' || key=='P' ) song1.play(); //Perameter is milli-seconds from start of audiofile to start playing
   //
   //Alternate Play Button, as a finite loop() && infinite loop()
   //Only press a number for this code below
@@ -54,8 +54,17 @@ void keyPressed()
   if ( key=='f' || key=='F' ) song1.skip(5000); //Skip forward 1 second (1000 ms)
   if ( key=='r' || key=='R' ) song1.skip(-5000); //Skip backwards 1 second (1000 ms)
   //
-}//End keyPressedfffrrr
-  void mousePressed() {
-  }// End mousePressed
+  if ( key=='s' || key=='S' ) { //STOP button
+    if ( song1.isPlaying() ) {
+      song1.pause();
+      song1.rewind();
+    } else { //Song is not playing
+    song1.rewind();
+    }
+  } //End STOP Button
   //
-  //End MAIN Program
+}//End keyPressed
+void mousePressed() {
+}// End mousePressed
+//
+//End MAIN Program
