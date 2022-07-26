@@ -8,13 +8,31 @@ import ddf.minim.ugens.*;
 //---------Global Variables---------
 Minim minim; //Creates object to acess all functions
 AudioPlayer song1; //creates a playlist
-color black=#000000;
+AudioMetaData songMetaData1;
+//
+//---------Text---------
+color black=#000000, resetWhite=255, pink=#FFADAD; //Not Night Mode friendly colours
+float titleX, titleY, titleW, titleH;
+PFont titleFont;
 //
 void setup() 
 {
+  //---------Size---------
+  size(500, 400); //Landscape,
+  //Be careful to include Display Orientation Checker and Display CANVAS Checker
+  //
   minim = new Minim(this); //load from data drirectiory, loadFile should also load from a project folder, like loadImage
   song1 = minim.loadFile("/Users/danielhamilton/Downloads/BubbleGumKK.mp3"); //able to pass absoulte path 
+  songMetaData1 = song1.getMetaData();
   //
+  //---------Loading the Variables---------
+  titleX = width*1/4;
+  titleY = height*0;
+  titleW = width*1/2;
+  titleH = height*1/10;
+  //
+  titleFont = createFont ("TimesNewRomanPSMT", 100);
+  
 } //End setup
 //
 void draw() 
@@ -27,9 +45,10 @@ void draw()
   background (black);
   rect (titleX, titleY, titleW, titleH);
   fill (pink); //Ink
-  textAlign();
-  textFont(titleFont, 30); //change size number until it fits
-  text();
+  textAlign(CENTER, CENTER); //Align X&Y see Prossesing.org / reference
+  //values: [LEFT | CENTER | RIGHT ] & [TOP | CENTER | BOTTOM | BASELINE]
+  textFont(titleFont, 60); //change size number until it fits
+  text(songMetaData1.title(), titleX, titleY, titleW, titleH);
   fill(resetWhite);
   
   //
