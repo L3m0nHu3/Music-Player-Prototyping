@@ -31,7 +31,7 @@ void setup()
   titleW = width*1/2;
   titleH = height*1/10;
   //
-  titleFont = createFont ("TimesNewRomanPSMT", 100);
+  titleFont = createFont ("TimesNewRomanPSMT", 55);
   
 } //End setup
 //
@@ -47,7 +47,7 @@ void draw()
   fill (pink); //Ink
   textAlign(CENTER, CENTER); //Align X&Y see Prossesing.org / reference
   //values: [LEFT | CENTER | RIGHT ] & [TOP | CENTER | BOTTOM | BASELINE]
-  textFont(titleFont, 60); //change size number until it fits
+  textFont(titleFont, 30); //change size number until it fits
   text(songMetaData1.title(), titleX, titleY, titleW, titleH);
   fill(resetWhite);
   
