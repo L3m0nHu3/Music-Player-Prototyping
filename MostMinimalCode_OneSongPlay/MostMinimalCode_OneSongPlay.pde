@@ -8,6 +8,7 @@ import ddf.minim.ugens.*;
 //---------Global Variables---------
 Minim minim; //Creates object to acess all functions
 AudioPlayer song1; //creates a playlist
+color black=#000000;
 //
 void setup() 
 {
@@ -22,6 +23,16 @@ void draw()
   if (song1.isLooping() && song1.loopCount()==1) println("Looping Infinity");
   if ( song1.isPlaying() && !song1.isLooping() ) println("Play Once");
   println("Song position", song1.position(), "Song length", song1.length() );
+  //
+  background (black);
+  rect (titleX, titleY, titleW, titleH);
+  fill (pink); //Ink
+  textAlign();
+  textFont(titleFont, 30); //change size number until it fits
+  text();
+  fill(resetWhite);
+  
+  //
 } //End draw
 //
 void keyPressed() 
